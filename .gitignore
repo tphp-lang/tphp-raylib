@@ -1,0 +1,33 @@
+# ── 构建产物 ──
+build/
+lib/
+# ── 库文件 git 下载 ──
+raylib-6.0/
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+
+# ── 可执行文件 ──
+*.exe
+test/test_raylib
+test/test_raylib.exe
+
+# ── 编辑器 / IDE ──
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ── 调试 / 临时文件 ──
+*.log
+*.tmp
+*.bak
+core
+core.*
