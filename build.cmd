@@ -13,7 +13,7 @@ REM ============================================================
 setlocal enabledelayedexpansion
 
 REM -- Directories --
-set "RAYLIB_SRC=raylib-6.0\src"
+set "RAYLIB_SRC=raylib\src"
 set "COMPAT_DIR=compat"
 set "INCLUDE_DIR=include"
 set "LIB_DIR=lib"

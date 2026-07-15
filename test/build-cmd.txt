@@ -1,11 +1,1 @@
-tcc main.c ^
-  ..\compat\user32_ext.def ^
-  ..\raylib-6.0\src\rcore.c ..\raylib-6.0\src\rshapes.c ^
-  ..\raylib-6.0\src\rtextures.c ..\raylib-6.0\src\rtext.c ^
-  ..\raylib-6.0\src\rmodels.c ..\raylib-6.0\src\raudio.c ^
-  -o test_raylib.exe ^
-  -DPLATFORM_DESKTOP_WIN32 -DGRAPHICS_API_OPENGL_33 -DUNICODE ^
-  -I..\compat -I..\raylib-6.0\src -I..\raylib-6.0\src\external -I..\include ^
-  -include ..\compat\tcc_compat.h ^
-  -lopengl32 -lgdi32 -lwinmm -luser32 -ladvapi32 -lole32 -lshlwapi ^
-  -w
+tcc main.c ..\compat\user32_ext.def ..\raylib\src\rcore.c ..\raylib\src\rshapes.c ..\raylib\src\rtextures.c ..\raylib\src\rtext.c ..\raylib\src\rmodels.c ..\raylib\src\raudio.c -o test_raylib.exe -DPLATFORM_DESKTOP_WIN32 -DGRAPHICS_API_OPENGL_33 -DUNICODE -I..\compat -I..\raylib\src -I..\raylib\src\external -I..\include -include ..\compat\tcc_compat.h -lopengl32 -lgdi32 -lwinmm -luser32 -ladvapi32 -lole32 -lshlwapi -w

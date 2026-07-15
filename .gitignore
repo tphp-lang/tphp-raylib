@@ -2,7 +2,7 @@
 build/
 lib/
 # ── 库文件 git 下载 ──
-raylib-6.0/
+raylib/
 *.o
 *.obj
 *.a

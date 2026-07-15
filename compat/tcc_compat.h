@@ -40,6 +40,12 @@
 #define WM_GETDPISCALEDSIZE 0x02E4
 #endif
 
+// ── winnls.h 缺失的代码页常量 ──
+// raylib rcore_desktop_win32.c / miniaudio / RGFW / glfw 都用 CP_UTF8 调 MultiByteToWideChar
+#ifndef CP_UTF8
+#define CP_UTF8 65001
+#endif
+
 // HDROP 由 MinGW shellapi.h 提供，无需在此定义
 
 // ── 跳过 MinGW intrin-impl.h 中的 GCC inline assembly ──
@@ -54,5 +60,118 @@
 #define MA_NO_SSE2
 #define MA_NO_AVX
 #define MA_NO_AVX2
+
+// ── winuser.h HWND_* 常量被错误地放在 #if !defined(NOGDI) 块内 ──
+// 当定义 NOGDI（避免 raylib Rectangle 与 Windows GDI Rectangle 冲突）时，
+// HWND_TOP/HWND_BOTTOM/HWND_TOPMOST/HWND_NOTOPMOST 会被排除
+#ifndef HWND_TOP
+#define HWND_TOP       ((HWND)0)
+#endif
+#ifndef HWND_BOTTOM
+#define HWND_BOTTOM    ((HWND)1)
+#endif
+#ifndef HWND_TOPMOST
+#define HWND_TOPMOST   ((HWND)-1)
+#endif
+#ifndef HWND_NOTOPMOST
+#define HWND_NOTOPMOST ((HWND)-2)
+#endif
+// ── winuser.h SWP_* 常量同样被错误地放在 #if !defined(NOGDI) 块内 ──
+// SetWindowPos 使用的标志位，定义 NOGDI 时一并被排除
+#ifndef SWP_NOSIZE
+#define SWP_NOSIZE        0x0001
+#endif
+#ifndef SWP_NOMOVE
+#define SWP_NOMOVE        0x0002
+#endif
+#ifndef SWP_NOZORDER
+#define SWP_NOZORDER      0x0004
+#endif
+#ifndef SWP_NOREDRAW
+#define SWP_NOREDRAW      0x0008
+#endif
+#ifndef SWP_NOACTIVATE
+#define SWP_NOACTIVATE    0x0010
+#endif
+#ifndef SWP_FRAMECHANGED
+#define SWP_FRAMECHANGED  0x0020
+#endif
+#ifndef SWP_SHOWWINDOW
+#define SWP_SHOWWINDOW    0x0040
+#endif
+#ifndef SWP_HIDEWINDOW
+#define SWP_HIDEWINDOW    0x0080
+#endif
+#ifndef SWP_NOCOPYBITS
+#define SWP_NOCOPYBITS    0x0100
+#endif
+#ifndef SWP_NOOWNERZORDER
+#define SWP_NOOWNERZORDER 0x0200
+#endif
+#ifndef SWP_NOSENDCHANGING
+#define SWP_NOSENDCHANGING 0x0400
+#endif
+#ifndef SWP_DRAWFRAME
+#define SWP_DRAWFRAME     SWP_FRAMECHANGED
+#endif
+#ifndef SWP_NOREPOSITION
+#define SWP_NOREPOSITION  SWP_NOOWNERZORDER
+#endif
+#ifndef SWP_DEFERERASE
+#define SWP_DEFERERASE    0x2000
+#endif
+#ifndef SWP_ASYNCWINDOWPOS
+#define SWP_ASYNCWINDOWPOS 0x4000
+#endif
+// ── winuser.h IDC_* 系统光标常量同样被错误地放在 #if !defined(NOGDI) 块内 ──
+// raylib 的 rcore_desktop_win32.c 用 LoadCursor(IDC_ARROW) 等加载系统光标
+#ifndef IDC_ARROW
+#define IDC_ARROW       MAKEINTRESOURCE(32512)
+#endif
+#ifndef IDC_IBEAM
+#define IDC_IBEAM       MAKEINTRESOURCE(32513)
+#endif
+#ifndef IDC_WAIT
+#define IDC_WAIT        MAKEINTRESOURCE(32514)
+#endif
+#ifndef IDC_CROSS
+#define IDC_CROSS       MAKEINTRESOURCE(32515)
+#endif
+#ifndef IDC_UPARROW
+#define IDC_UPARROW     MAKEINTRESOURCE(32516)
+#endif
+#ifndef IDC_SIZE
+#define IDC_SIZE        MAKEINTRESOURCE(32640)
+#endif
+#ifndef IDC_ICON
+#define IDC_ICON        MAKEINTRESOURCE(32641)
+#endif
+#ifndef IDC_SIZENWSE
+#define IDC_SIZENWSE    MAKEINTRESOURCE(32642)
+#endif
+#ifndef IDC_SIZENESW
+#define IDC_SIZENESW    MAKEINTRESOURCE(32643)
+#endif
+#ifndef IDC_SIZEWE
+#define IDC_SIZEWE      MAKEINTRESOURCE(32644)
+#endif
+#ifndef IDC_SIZENS
+#define IDC_SIZENS      MAKEINTRESOURCE(32645)
+#endif
+#ifndef IDC_SIZEALL
+#define IDC_SIZEALL     MAKEINTRESOURCE(32646)
+#endif
+#ifndef IDC_NO
+#define IDC_NO          MAKEINTRESOURCE(32648)
+#endif
+#ifndef IDC_HAND
+#define IDC_HAND        MAKEINTRESOURCE(32649)
+#endif
+#ifndef IDC_APPSTARTING
+#define IDC_APPSTARTING MAKEINTRESOURCE(32650)
+#endif
+#ifndef IDC_HELP
+#define IDC_HELP        MAKEINTRESOURCE(32651)
+#endif
 
 #endif // TCC_COMPAT_H
