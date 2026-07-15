@@ -1,5 +1,15 @@
 # tphp-raylib
 
+# 简介
+
+tphp-raylib 是一个基于 tphp 和 raylib 的游戏引擎，用于构建 2D 游戏。
+
+## 安装
+
+```bash
+git clone https://github.com/raysan5/raylib/archive/refs/tags/6.0.zip
+tphp . -o tphp-raylib.exe
+```
 
 ## 许可证
 
