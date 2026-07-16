@@ -12,7 +12,7 @@
 
 // linux
 #flag linux -lm -ldl -lpthread -lX11 -lXext -lXcursor -lXinerama -lXi -lXrandr -lGL
-#flag linux -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33
+#flag linux -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GLFW_X11
 #flag linux __DIR__ . "raylib/src/rglfw.c"
 
 // macos
