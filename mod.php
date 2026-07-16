@@ -10,6 +10,16 @@
 #flag windows -include "compat/tcc_compat.h"
 #flag windows -I"compat"
 
+// linux
+#flag linux -lm -ldl -lpthread -lX11 -lXext -lXcursor -lXinerama -lXi -lXrandr -lGL
+#flag linux -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33
+#flag linux __DIR__ . "raylib/src/rglfw.c"
+
+// macos
+#flag macos -lm -framework OpenGL -framework Cocoa -framework IOKit
+#flag macos -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -DGRAPHICS_API_OPENGL_21
+#flag macos __DIR__ . "raylib/src/rglfw.c"
+
 #flag -I"raylib/src/external"
 #flag -I"include"
 #flag __DIR__ . "raylib\src\rcore.c"

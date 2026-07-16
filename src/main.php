@@ -12,7 +12,6 @@ class Main
             Core::beginDrawing();
             Core::clearBackground(C->RAYWHITE);
             Core::drawText("raylib built with TPHP!", 260, 30, 28, C->DARKGRAY);
-
             Core::endDrawing();
         }
         Core::closeWindow();
