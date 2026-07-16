@@ -7,8 +7,9 @@ tphp-raylib 是一个基于 tphp 和 raylib 的游戏引擎，用于构建游戏
 ## 安装
 
 ```bash
+# cd 根目录
 git clone https://github.com/raysan5/raylib.git -b 6.0 --depth 1
-tphp . -o tphp-raylib.exe
+tphp . 
 ```
 
 ## 许可证

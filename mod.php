@@ -6,16 +6,19 @@
 #flag windows -DUNICODE
 #flag windows -lopengl32 -lgdi32 -lwinmm -luser32 -ladvapi32 -lole32 -lshlwapi
 #flag windows -w
-#flag windows __DIR__. "/compat/user32_ext.def"
-#flag windows -include __DIR__. "compat/tcc_compat.h"
-#flag windows -I__DIR__. "compat"
+#flag windows __DIR__. "compat/user32_ext.def"
+#flag windows -include "compat/tcc_compat.h"
+#flag windows -I"compat"
 
-#flag -I__DIR__. "raylib/src/external"
-#flag -I__DIR__. "include"
+#flag -I"raylib/src/external"
+#flag -I"include"
+#flag __DIR__ . "raylib\src\rcore.c"
+#flag __DIR__ . "raylib\src\rtextures.c"
+#flag __DIR__ . "raylib\src\rtext.c"
+#flag __DIR__ . "raylib\src\rmodels.c"
+#flag __DIR__ . "raylib\src\raudio.c"
+#flag __DIR__ . "raylib\src\rshapes.c"
 
 #include windows "raylib_compat.h"
 #include linux "raylib.h"
 #include macos "raylib.h"
-
-
-// .\mod.php .\src\tphp-raylib.php .\raylib\src\rcore.c .\raylib\src\rshapes.c .\raylib\src\rtextures.c .\raylib\src\rtext.c .\raylib\src\rmodels.c .\raylib\src\raudio.c
