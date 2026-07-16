@@ -8,6 +8,13 @@ tphp-raylib 是一个基于 tphp 和 raylib 的游戏引擎，用于构建游戏
 
 - tphp 版本 >= 0.2.0-base.2
 
+## 开发环境
+
+```bash
+# linux
+sudo apt install libx11-dev libxext-dev libxcursor-dev libxinerama-dev libxi-dev libxrandr-dev libgl-dev
+```
+
 ## 安装
 
 ```bash
