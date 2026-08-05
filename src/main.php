@@ -15,6 +15,5 @@ class Main
             Core::endDrawing();
         }
         Core::closeWindow();
-        
     }
 }

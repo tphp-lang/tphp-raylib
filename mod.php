@@ -7,8 +7,8 @@
 #flag windows -lopengl32 -lgdi32 -lwinmm -luser32 -ladvapi32 -lole32 -lshlwapi
 #flag windows -w
 #flag windows __DIR__. "compat/user32_ext.def"
-#flag windows -include "compat/tcc_compat.h"
-#flag windows -I"compat"
+#flag windows -include __DIR__ . "compat/tcc_compat.h"
+#flag windows -I__DIR__ . "compat"
 
 // linux
 #flag linux -lm -ldl -lpthread -lX11 -lXext -lXcursor -lXinerama -lXi -lXrandr -lGL
